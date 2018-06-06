@@ -22,3 +22,109 @@ select,
 textarea {
     max-width: 280px;
 }
+ul.large-cover-list li {
+    width: 333.33px;
+    height: 333.33px;
+}
+
+    ul.large-cover-list li a h1 {
+        top: 45%;
+    }
+
+    ul.large-cover-list li a:hover h1 {
+        top: 46%;
+    }
+
+ul.small-cover-list li {
+    width: 256px;
+    height: 256px;
+}
+
+    ul.small-cover-list li a h1 {
+        top: 40%;
+    }
+
+    ul.small-cover-list li a:hover h1 {
+        top: 41%;
+    }
+
+
+ul.ThreeColumnsCoversList {
+    overflow: hidden;
+    list-style-type: none;
+    font-size: 18px;
+}
+
+    ul.ThreeColumnsCoversList li {
+        float: left;
+        position: relative;
+        /*opacity: 0.2;*/
+    }
+
+        ul.ThreeColumnsCoversList li article {
+            height: 100%;
+        }
+
+        ul.ThreeColumnsCoversList li a.addtocartlink {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+            ul.ThreeColumnsCoversList li a.addtocartlink img {
+                z-index: 2;
+                position: relative;
+                vertical-align: top;
+            }
+
+        ul.ThreeColumnsCoversList li a.productdetailslink {
+            display: block;
+            height: 100%;
+        }
+
+        ul.ThreeColumnsCoversList li a h1 {
+            background-color: rgba(255, 255, 255, 0.2);
+            vertical-align: central;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            font-weight: normal;
+            /* More intensive album title */
+            /* font-family: 'Segoe UI Semibold', 'Segoe WP', 'Segoe UI'; */
+            -webkit-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+
+        ul.ThreeColumnsCoversList li a:hover h1 {
+            background-color: rgba(255, 255, 255, 0.85);
+            -webkit-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+
+        ul.ThreeColumnsCoversList li a img.album-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            -webkit-transition: opacity 0.5s ease;
+            -o-transition: opacity 0.5s ease;
+            -moz-transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease;
+        }
+
+        ul.ThreeColumnsCoversList li a:hover img.album-cover {
+            opacity: 0.8;
+            -webkit-transition: opacity 1s ease;
+            -o-transition: opacity 1s ease;
+            -moz-transition: opacity 1s ease;
+            transition: opacity 1s ease;
+        }

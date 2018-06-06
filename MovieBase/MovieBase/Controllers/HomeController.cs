@@ -1,6 +1,7 @@
 ﻿using MovieBase.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,10 +10,14 @@ namespace MovieBase.Controllers
 {
     public class HomeController : Controller
     {
+        MovieDbContext db = new MovieDbContext();
+
         public ActionResult Index()
         {
-            MovieDbContext db = new MovieDbContext();
-            return View();
+            using (MovieDbContext db = new MovieDbContext())
+            {
+                return View(db.MovieDb.ToList());
+            }
         }
 
         public ActionResult About()
@@ -26,6 +31,32 @@ namespace MovieBase.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult AddMovie(MovieDb movie, HttpPostedFileBase file)
+        { 
+            if (file != null)
+            {
+                file.SaveAs(HttpContext.Server.MapPath("~/Content/Images/")
+                                                      + file.FileName);
+                movie.PictureLink = file.FileName;
+            }
+            db.MovieDb.Add(movie);
+            try
+            {
+                db.SaveChanges();
+                RedirectToAction("Index");
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                    }
+                }
+            }
             return View();
         }
     }

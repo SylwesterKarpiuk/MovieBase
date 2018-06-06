@@ -13,6 +13,7 @@ namespace MovieBase.Models
         [Required]
         public string Title { get; set; }
         public string Description { get; set; }
+        public int Stars { get; set; }
         public string Link { get; set; }
         public string PictureLink { get; set; }
     }

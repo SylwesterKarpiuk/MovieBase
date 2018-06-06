@@ -205,6 +205,14 @@
     <Compile Include="Migrations\201806050913471_codefirst.Designer.cs">
       <DependentUpon>201806050913471_codefirst.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806050924345_codefirst1.cs" />
+    <Compile Include="Migrations\201806050924345_codefirst1.Designer.cs">
+      <DependentUpon>201806050924345_codefirst1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806050926041_codefirst2.cs" />
+    <Compile Include="Migrations\201806050926041_codefirst2.Designer.cs">
+      <DependentUpon>201806050926041_codefirst2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -219,6 +227,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\star.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -273,6 +282,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\AddMovie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -293,6 +303,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201806050913471_codefirst.resx">
       <DependentUpon>201806050913471_codefirst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806050924345_codefirst1.resx">
+      <DependentUpon>201806050924345_codefirst1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806050926041_codefirst2.resx">
+      <DependentUpon>201806050926041_codefirst2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
