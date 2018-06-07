@@ -2,27 +2,79 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<table class="table">
-    <ul class="ThreeColumnsCoversList">
-        @foreach (var item in Model)
-        {
+<div style="height:30px"></div>
+<ul class="ThreeColumnsCoversList">
+    @foreach (var item in Model)
+    {
         <li>
 
-                <div>@Html.DisplayFor(modelItem => item.Title)</div>
-                <div><img src="~/Content/Images/@item.PictureLink" height="150" width="120" /></div>
-                <div style="margin-left:5px">
-                    @{
-                        for (int i = 0; i < item.Stars; i++)
-                        {
-                            <img src="~/Content/Images/star.png" height="20" width="17" />
-                        }
-                    }
-                </div>
-                <div>@Html.DisplayFor(modelItem => item.Stars)</div>
+            <div style="text-align:center">
+                @Html.DisplayFor(modelItem => item.Title)
+            </div>
+            <div><img src="~/Content/Images/@item.PictureLink" height="150" width="120" /></div>
 
-                <div>@Html.DisplayFor(modelItem => item.Link)</div>
+            <div>
+                @{
+                    for (int i = 0; i < item.Stars; i++)
+                    {
+                        <img src="~/Content/Images/star.png" height="20" width="17" />
+                    }
+                }
+                </div>
+                <div>
+                    <p style="font-size:small;text-align:center">
+                        <div style="font-size:small;text-align:center">
+                            Dodany:
+                        </div>
+                        <div style="font-size:small;text-align:center">
+                            @{
+                                string yd = item.Added.Substring(0, 10);
+                                if (yd == DateTime.Now.ToString().Substring(0, 10))
+                                {
+                                    int z = Int32.Parse(DateTime.Now.ToString().Substring(11, 2)) - Int32.Parse(item.Added.Substring(11, 2));
+                                    if (z == 0)
+                                    {
+                                        int f = Int32.Parse(DateTime.Now.ToString().Substring(14, 2)) - Int32.Parse(item.Added.Substring(14, 2));
+                                        if (f == 0)
+                                        {
+                                            <text>@f  minut temu</text>
+                                        }
+                                        else if (f == 1)
+                                        {
+                                            <text>@f  minute temu</text>
+                                        }
+                                        else if (f > 2 && f < 5)
+                                        {
+                                            <text>@f  minuty temu</text>
+                                        }
+                                        else
+                                        {
+                                            <text>@f  minut temu</text>
+                                        }
+                                    }
+                                    else if (z == 1)
+                                    {
+                                        <text>@z  godzinę temu</text>
+                                    }
+                                    else if (z > 1 && z < 5)
+                                    {
+                                        <text>@z  godziny temu</text>
+                                    }
+                                    else if (z > 4)
+                                    {
+                                        <text>@z  godzin temu</text>
+                                    }
+                                }
+                                else
+                                {
+                                    <text>@yd</text>
+                                }
+                         
+                        }
+                            </div>
+                    </p>
+                </div>
 
         </li>
         }
     </ul>
-    </table>

@@ -41,6 +41,7 @@ namespace MovieBase.Controllers
                                                       + file.FileName);
                 movie.PictureLink = file.FileName;
             }
+            movie.Added = DateTime.Now.ToString();
             db.MovieDb.Add(movie);
             try
             {
@@ -49,13 +50,7 @@ namespace MovieBase.Controllers
             }
             catch (DbEntityValidationException ex)
             {
-                foreach (var entityValidationErrors in ex.EntityValidationErrors)
-                {
-                    foreach (var validationError in entityValidationErrors.ValidationErrors)
-                    {
-                        Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
-                    }
-                }
+
             }
             return View();
         }
